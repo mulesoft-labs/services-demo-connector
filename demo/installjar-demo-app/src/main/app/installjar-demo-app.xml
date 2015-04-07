@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jar-try="http://www.mulesoft.org/schema/mule/jar-try" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/jar-try http://www.mulesoft.org/schema/mule/jar-try/current/mule-jar-try.xsd">
+    <jar-try:config name="JarTry__Connection_Managament_type_strategy" username="sdf" password="sdf" doc:name="JarTry: Connection Managament type strategy"/>
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <flow name="installjar-demo-appFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="demo" doc:name="HTTP"/>
+        <jar-try:my-processor config-ref="JarTry__Connection_Managament_type_strategy" doc:name="JarTry">
+            <jar-try:content><![CDATA[
+Sample Demo
+App
+For Services]]></jar-try:content>
+        </jar-try:my-processor>
+    </flow>
+</mule>

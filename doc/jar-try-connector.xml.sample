@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(jar-try:my-processor) -->
+    <jar-try:my-processor config-ref="" content="#[map-payload:content]" />
+<!-- END_INCLUDE(jar-try:my-processor) -->
